@@ -3,10 +3,13 @@
 git clone git@github.com:Anoop1989/sample_oauth2.git
 
 cd sample_oauth2
+
 rvm list
+
 rvm gemset list
 
 bundle install
+
 rake db:create db:migrate db:seed
 
 rails s -p 3005
