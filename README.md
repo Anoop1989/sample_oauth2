@@ -5,9 +5,11 @@ git clone git@github.com:Anoop1989/sample_oauth2.git
 
 cd sample_oauth2
 
-rvm list
+Ensure you have gemset pointing appropriately using following commands (use pulse360 gemset if already exist)
 
-rvm gemset list
+-> rvm list
+
+-> rvm gemset list
 
 bundle install
 
