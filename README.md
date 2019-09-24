@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+git clone git@github.com:Anoop1989/sample_oauth2.git
 
-Things you may want to cover:
+cd sample_oauth2
 
-* Ruby version
+rvm list
 
-* System dependencies
+rvm gemset list
 
-* Configuration
+bundle install
 
-* Database creation
+rake db:create db:migrate db:seed
 
-* Database initialization
+rails s -p 3005
 
-* How to run the test suite
+# Get details of a user
+curl -X GET -H "Authorization: Bearer <access_token>" -H "Content-Type: application/json" http://localhost:3005/users.json
 
-* Services (job queues, cache servers, search engines, etc.)
+# Generating access token
+curl -H "Content-Type: application/json" -d '{"client_id": "<client_id>", "client_secret": "<client_secret>", "redirect_uri": "urn:ietf:wg:oauth:2.0:oob", "grant_type": "authorization_code", "code": "<auth_code>" }' -X POST http://localhost:3005/oauth/token
 
-* Deployment instructions
-
-* ...
+# Generating access token using refresh token
+curl -H "Content-Type: application/json" -d '{"client_id": "<client_id>", "client_secret": "<client_secret>", "redirect_uri": "urn:ietf:wg:oauth:2.0:oob", "grant_type": "refresh_token", "refresh_token": "<refresh_token>" }' -X POST http://localhost:3005/oauth/token
